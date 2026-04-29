@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Content using DOM</title>
+</head>
+
+<body>
+
+    <h2>JavaScript DOM Example</h2>
+
+    <p id="demo">Click the button to see dynamic content.</p>
+
+    <button id="btn">Click Me</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function() {
+            var element = document.getElementById("demo");
+            element.innerHTML = "Hello Rajat! Welcome to JavaScript DOM.";
+            element.style.color = "blue";
+            element.style.fontSize = "20px";
+        });
+    </script>
+
+</body>
+</html>

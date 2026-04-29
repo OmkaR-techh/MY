@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+
+    <script>
+        function calculate() {
+            // Get input values
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var operator = document.getElementById("operator").value;
+            var result;
+
+            // Validation
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers");
+                return;
+            }
+
+            // Switch-case for operations
+            switch (operator) {
+                case '+':
+                    result = add(num1, num2);
+                    break;
+
+                case '-':
+                    result = subtract(num1, num2);
+                    break;
+
+                case '*':
+                    result = multiply(num1, num2);
+                    break;
+
+                case '/':
+                    if (num2 == 0) {
+                        alert("Cannot divide by zero");
+                        return;
+                    }
+                    result = divide(num1, num2);
+                    break;
+
+                default:
+                    alert("Invalid operator");
+                    return;
+            }
+
+            // Display result
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+
+        // Functions for operations
+        function add(a, b) {
+            return a + b;
+        }
+
+        function subtract(a, b) {
+            return a - b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            return a / b;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <!-- Input fields -->
+    <input type="text" id="num1" placeholder="Enter first number"><br><br>
+    <input type="text" id="num2" placeholder="Enter second number"><br><br>
+
+    <!-- Operator selection -->
+    <select id="operator">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (*)</option>
+        <option value="/">Division (/)</option>
+    </select><br><br>
+
+    <!-- Button -->
+    <button onclick="calculate()">Calculate</button>
+
+    <!-- Result -->
+    <p id="result"></p>
+
+</body>
+</html>
